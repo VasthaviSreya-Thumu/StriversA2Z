@@ -1,11 +1,20 @@
 class Solution {
-    public void pattern18(int n) {
-        for (int i = 1; i <= n; i++){
-            int start = 64 + n;
-            for (int j = 1; j <= i; j++){
-                System.out.print((char)(start - i + j));
+    public void pattern17(int n) {
+        for (int i = 0; i < n; i++){
+            char start = 'A';
+            for (int j = 0; j < n - i - 1; j++){
                 System.out.print(" ");
-            } 
+            }
+            System.out.print(start);
+            for (int j = 1; j <= i; j++){
+                start++;
+                System.out.print(start);
+            }
+            start--;
+            for (int j = 1; j <= i; j++){
+                System.out.print(start);
+                start--;
+            }
             System.out.println();
         }
     }
