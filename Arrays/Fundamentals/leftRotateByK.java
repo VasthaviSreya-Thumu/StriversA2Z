@@ -1,10 +1,16 @@
 class Solution {
-    public void rotateArrayByOne(int[] nums) {
-        int temp = nums[0];
+    public void rotateArray(int[] nums, int k) {
         int n = nums.length;
-        for (int i = 1; i < n; i++) {
-            nums[i - 1] = nums[i];
+        k = k % n;
+        int[] temp = new int[k];
+        for (int i = 0; i < k; i++){
+            temp[i] = nums[i];
         }
-        nums[n - 1] = temp;
+        for (int i = k; i < n; i++){
+            nums[i - k] = nums[i];
+        }
+        for (int i = 0; i < k;i++) {
+            nums[n - k + i] = temp[i];
+        }
     }
 }
